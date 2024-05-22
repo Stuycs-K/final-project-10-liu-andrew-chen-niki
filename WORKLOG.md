@@ -1,21 +1,22 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Andrew Liu
 
-### date x
+### 5/22
 
-info
+Propose project ideas, thinking about encoding and decoding Hill Ciphers
 
 ### date y
 
 info
 
 
-## GROUP MEMBER 2
+## Niki Chen
 
-### date x
+### 5/22
 
-info
+Propose project ideas, thinking about encoding and decoding Hill Ciphers
+
 
 ### date y
 
