@@ -17,6 +17,9 @@ info
 
 Propose project ideas, thinking about encoding and decoding Hill Ciphers
 
+### 5/23
+
+Worked on README.md, brainstormed and outlined features to implement (specifically input modes), read about hill cipher.
 
 ### date y
 
