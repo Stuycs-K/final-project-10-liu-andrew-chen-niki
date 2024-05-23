@@ -6,9 +6,9 @@
 
 Propose project ideas, thinking about encoding and decoding Hill Ciphers
 
-### date y
+### 5/23
 
-info
+Finish make file, work on formatting the inputs into lists or matrices in encode.py
 
 
 ## Niki Chen
