@@ -10,6 +10,10 @@ Propose project ideas, thinking about encoding and decoding Hill Ciphers
 
 Finish make file, work on formatting the inputs into lists or matrices in encode.py
 
+### 5/24 
+
+Continue formatting the triplet array and convert into num py for matrix multiplication
+
 
 ## Niki Chen
 
