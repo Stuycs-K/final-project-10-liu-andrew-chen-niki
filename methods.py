@@ -1,6 +1,6 @@
 import numpy as np
 
-def encode(message ,keyMatrix):
+def encode(message: str ,keyMatrix: list) -> list:
     keyMatrix = np.array(keyMatrix)
     return_string = ""
     # store message as their ascii values
