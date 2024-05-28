@@ -17,6 +17,18 @@ def encode(message: str ,keyMatrix: list) -> list:
     print(triplets)
     # convert into np 
     triplets = (np.array(triplet) for triplet in triplets)
+    # multiply each triplet with the keyMatrix
+    encoded_message = []
+    for triplet in triplets:
+        column = np.transpose(triplet)
+        encoded_product = np.dot(keyMatrix, column)%26
+        print(encoded_product)
+        encoded_triplet = encoded_product.flatten().tolist()
+        print(encoded_triplet)
+        encoded_message.append(encoded_triplet)
+
+    print(encoded_triplet)
+    
     
     # for triplet in triplets:
     #     print(triplet)
@@ -27,5 +39,7 @@ def encode(message: str ,keyMatrix: list) -> list:
 
 
 
-encode("ASFLJDA", [[6,24,1],[13,16,10],[20,17,15]] )
+encode("ASFLJDA", [[6,24,1],[13,16,10],[20,17,15]])
+
+
 
