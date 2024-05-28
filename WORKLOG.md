@@ -18,6 +18,10 @@ Continue formatting the triplet array and convert into num py for matrix multipl
 
 Specify and clean up function parameters 
 
+### 5/28
+
+Finish the encode function, using np matrix multiplication and returning the encodede String
+
 ## Niki Chen
 
 ### 5/22
