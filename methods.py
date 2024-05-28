@@ -1,6 +1,6 @@
 import numpy as np
 
-def encode(message: str ,keyMatrix: list) -> list:
+def encode(message: str ,keyMatrix: list) -> str:
     keyMatrix = np.array(keyMatrix)
     return_string = ""
     # store message as their ascii values
@@ -16,16 +16,26 @@ def encode(message: str ,keyMatrix: list) -> list:
     triplets = [triplet + [0] * (3-len(triplet)) for triplet in triplets]
     print(triplets)
     # convert into np 
-    triplets = (np.array(triplet) for triplet in triplets)
+    triplets = [np.array(triplet) for triplet in triplets]
+    # multiply each triplet with the keyMatrix
+    encoded_message = []
+    for triplet in triplets:
+        column = np.transpose(triplet)
+        encoded_product = np.dot(keyMatrix, column)%26
+        encoded_triplet = encoded_product.flatten().tolist()
+        # print(encoded_triplet)
+        encoded_message += encoded_triplet
     
-    # for triplet in triplets:
-    #     print(triplet)
-    #     [print (a,b,c) for a,b,c in triplet]
+    encoded_message = [chr(value + 65) for value in encoded_message]
 
-    # print(triplets)
+    encoded_string = "".join(encoded_message)
 
-
+    return encoded_string
 
 
-encode("ASFLJDA", [[6,24,1],[13,16,10],[20,17,15]] )
+
+
+encode("ASFLJDA", [[6,24,1],[13,16,10],[20,17,15]])
+
+
 
