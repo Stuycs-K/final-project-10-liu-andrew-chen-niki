@@ -6,3 +6,5 @@ Members: Andrew Liu and Niki Chen
 Our project includes an encoder and decoder for the encryption method, hill cipher.
 ## Instructions
 There are a few options to how you want to input the plain/cipher text and key. You can choose between DEFAULT, FILE, and CLI. DEFAULT takes in the information from the program - that is, as arguments to the encoder function. FILE takes into two files: plain text and key. CLI waits for user input in the terminal. Running the program will output the encrypted/decrypted cipher/plain text into the command line. 
+
+
