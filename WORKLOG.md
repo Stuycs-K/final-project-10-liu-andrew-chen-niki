@@ -26,6 +26,10 @@ Finish the encode function, using np matrix multiplication and returning the enc
 
 Allow user input to work with encoding, demonstrate the process of encoding through print statements.
 
+### 5/30
+
+Work on the generalization of the encoding so it no longer works for only triplets. 
+
 ## Niki Chen
 
 ### 5/22
