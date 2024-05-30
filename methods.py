@@ -14,7 +14,7 @@ def encode(message: str ,keyMatrix: list) -> str:
     n_plets = [message[i:i+size] for i in range (0,len(message),size)]
     print(f'Splitting into {size}-plets: {n_plets}')
     # pad triplets with zeros 
-    n_plets = [n_plet + [0] * (3-len(n_plet)) for n_plet in n_plets]
+    n_plets = [n_plet + [0] * (4-len(n_plet)) for n_plet in n_plets]
     print(f'Padding {size}-plets with zeros: {n_plets}')
     # convert into np 
     n_plets = [np.array(n_plet) for n_plet in n_plets]
@@ -68,3 +68,4 @@ def decode(cipher: str, keyMatrix: list) -> str:
 
 # JKFDBGJKDFB
 # FFARAMDJCTWA
+
