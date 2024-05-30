@@ -22,6 +22,10 @@ Specify and clean up function parameters
 
 Finish the encode function, using np matrix multiplication and returning the encodede String
 
+### 5/29
+
+Allow user input to work with encoding, demonstrate the process of encoding through print statements.
+
 ## Niki Chen
 
 ### 5/22
