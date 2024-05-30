@@ -34,3 +34,37 @@ def encode(message: str ,keyMatrix: list) -> str:
     return encoded_string
 
 
+def decode(cipher: str, keyMatrix: list) -> str:
+    keyMatrix = np.array(keyMatrix)
+    # store message as their ascii values
+    message = [ord(char) for char in message]
+    print(message)
+    # 0-25 the ascii values
+    message = [char%65 for char in message]
+    print(message)
+    # split into triplets
+    triplets = [message[i:i+3] for i in range (0,len(message),3)]
+    print(triplets)
+    # pad triplets with zeros 
+    triplets = [triplet + [0] * (3-len(triplet)) for triplet in triplets]
+    print(triplets)
+    # convert into np 
+    triplets = [np.array(triplet) for triplet in triplets]
+    # multiply each triplet with the keyMatrix
+    decoded_message = []
+    keyMatrix = np.linalg.inv(keyMatrix)
+    for triplet in triplets:
+        column = np.transpose(triplet)
+        decoded_product = np.dot(keyMatrix, column)%26
+        decoded_triplet = decoded_product.flatten().tolist()
+        # print(encoded_triplet)
+        decoded_message += decoded_triplet
+    
+    decoded_message = [chr(value + 65) for value in decoded_message]
+
+    decoded_string = "".join(decoded_message)
+
+    return decoded_string
+
+# JKFDBGJKDFB
+# FFARAMDJCTWA
