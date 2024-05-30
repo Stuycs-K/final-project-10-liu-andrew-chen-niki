@@ -9,4 +9,4 @@ with open(inputTextFile,'r') as f:
 
 keyMatrix = [[int(num) for num in line.split()] for line in lines]
 
-print(methods.encode(cipher, keyMatrix))
+print(methods.decode(cipher, keyMatrix))

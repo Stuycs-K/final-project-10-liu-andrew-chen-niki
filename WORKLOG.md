@@ -36,6 +36,23 @@ Propose project ideas, thinking about encoding and decoding Hill Ciphers
 
 Worked on README.md, brainstormed and outlined features to implement (specifically input modes), read about hill cipher.
 
+### 5/24 
+
+Looked at numpy documentation to see how we can implement it in our code
+
+### 5/28
+
+Finish the decode function, using np matrix multiplication and returning the decoded message
+
+### 5/29
+
+Researching hill cipher decryption method (inverse matrices, mod)
+
+### 5/30
+
+Debugging decode method (bug with finding the inverse keyMatrix)
+Trying to implement different finding inverse method using determinant and adjoint matrix
+
 ### date y
 
 info
