@@ -27,46 +27,55 @@ def encode(message: str ,keyMatrix: list) -> str:
         print(f'{size}-plets {index}: {encoded_triplet}')
         encoded_message += encoded_triplet
     
-    encoded_message = [chr(value + 65) for value in encoded_message]
+    encoded_message = [chr(int(value) + 65) for value in encoded_message]
 
     encoded_string = "".join(encoded_message)
 
     return encoded_string
 
 
-def decode(cipher: str, keyMatrix: list) -> str:
-    keyMatrix = np.array(keyMatrix)
-    # store message as their ascii values
-    cipher = [ord(char) for char in cipher]
-    print(cipher)
-    # 0-25 the ascii values
-    cipher = [char%65 for char in cipher]
-    print(cipher)
-    # split into triplets
-    triplets = [cipher[i:i+3] for i in range (0,len(cipher),3)]
-    print(triplets)
-    # pad triplets with zeros 
-    triplets = [triplet + [0] * (3-len(triplet)) for triplet in triplets]
-    print(triplets)
-    # convert into np 
-    triplets = [np.array(triplet) for triplet in triplets]
-    # multiply each triplet with the keyMatrix
-    decoded_message = []
-    keyMatrixinv = np.linalg.inv(keyMatrix)
-    print(keyMatrixinv.flatten().tolist())
-    for triplet in triplets:
-        column = np.transpose(triplet)
-        decoded_product = np.dot(keyMatrixinv, column)%26
-        decoded_triplet = decoded_product.flatten().tolist()
-        # print(encoded_triplet)
-        decoded_message += decoded_triplet
+# def decode(cipher: str, keyMatrix: list) -> str:
+#     keyMatrix = np.array(keyMatrix)
+#     # store message as their ascii values
+#     cipher = [ord(char) for char in cipher]
+#     print(cipher)
+#     # 0-25 the ascii values
+#     cipher = [char%65 for char in cipher]
+#     print(cipher)
+#     # split into triplets
+#     triplets = [cipher[i:i+3] for i in range (0,len(cipher),3)]
+#     print(triplets)
+#     # pad triplets with zeros 
+#     triplets = [triplet + [0] * (3-len(triplet)) for triplet in triplets]
+#     print(triplets)
+#     # convert into np 
+#     triplets = [np.array(triplet) for triplet in triplets]
+#     # multiply each triplet with the keyMatrix
+#     decoded_message = []
+#     # keyMatrixinv = np.linalg.inv(keyMatrix)
+#     keyMatrixinv = np.matrix.getH(keyMatrix) / np.linalg.det(keyMatrix)
+#     print(keyMatrixinv.flatten().tolist())
+#     for triplet in triplets:
+#         column = np.transpose(triplet)
+#         decoded_product = np.dot(keyMatrixinv, column)%26
+#         decoded_triplet = decoded_product.flatten().tolist()
+#         # print(encoded_triplet)
+#         decoded_message += decoded_triplet
     
-    decoded_message = [chr(value + 65) for value in decoded_message]
+#     decoded_message = [chr(value + 65) for value in decoded_message]
 
-    decoded_string = "".join(decoded_message)
+#     decoded_string = "".join(decoded_message)
 
-    return decoded_string
+#     return decoded_string
 
 # JKFDBGJKDFB
 # FFARAMDJCTWA
 
+def inverse(keyMatrix: list) -> list:
+    keyMatrixinv = np.linalg.inv(keyMatrix)
+    # adj = Matrix(len(keyMatrix), len(keyMatrix), keyMatrix).adjoint()
+    # adj = np.array([[adj[i][j] for j in range(len(keyMatrix))] for i in range(len(keyMatrix))]) % 26
+    # det = np.linalg.det(keyMatrix) % 26
+    # keyMatrixinv = adj * det % 26
+    print(keyMatrixinv.flatten().tolist())
+    return keyMatrixinv

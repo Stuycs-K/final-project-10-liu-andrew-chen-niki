@@ -57,6 +57,10 @@ Researching hill cipher decryption method (inverse matrices, mod)
 Debugging decode method (bug with finding the inverse keyMatrix)
 Trying to implement different finding inverse method using determinant and adjoint matrix
 
+### 5/31
+
+Researched more matrix inverse methods using adjoint and determinant
+
 ### date y
 
 info
