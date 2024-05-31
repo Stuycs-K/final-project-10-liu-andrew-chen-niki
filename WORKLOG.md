@@ -30,6 +30,10 @@ Allow user input to work with encoding, demonstrate the process of encoding thro
 
 Work on the generalization of the encoding so it no longer works for only triplets. 
 
+### 5/31 
+
+Develop the tryhackme room practice for the hill cipher
+
 ## Niki Chen
 
 ### 5/22
