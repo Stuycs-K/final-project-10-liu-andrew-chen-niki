@@ -33,21 +33,21 @@ def encode(message: str ,keyMatrix: list) -> str:
 
     return encoded_string
 
-# JKFDBGJKDFB
-# FFARAMDJCTWA
+def modinv(val, modulus):
+    m, a, b = modulus, 0, 1
+    if modulus == 1: return 0 # base case
+    
+    while val > 1:
+        q = val // modulus # floor division
+        modulus = val % modulus
+        val = modulus
 
-# def inverse(keyMatrix: list) -> list:
-#     keyMatrixinv = np.linalg.inv(keyMatrix)
-#     # adj = Matrix(len(keyMatrix), len(keyMatrix), keyMatrix).adjoint()
-#     # adj = np.array([[adj[i][j] for j in range(len(keyMatrix))] for i in range(len(keyMatrix))]) % 26
-#     # det = np.linalg.det(keyMatrix) % 26
-#     # keyMatrixinv = adj * det % 26
-#     print(keyMatrixinv.flatten().tolist())
-#     return keyMatrixinv
+        a = b - q * a
+        b = a
+    if b < 0: b += m # make x1 positive
+    
+    return b
 
-
-def modinv(i, m):
-    return i % m
 
 def inverse(keyMatrix: list) -> list:
     # M^-1 = ( 1 / |M| ) * adj(M)
