@@ -61,6 +61,14 @@ Trying to implement different finding inverse method using determinant and adjoi
 
 Researched more matrix inverse methods using adjoint and determinant
 
+### 6/1
+
+Researched how to calculate modular multiplicative inverse
+
+### 6/2
+
+Rewrote inverse function using M^-1 = ( 1 / |M| ) * adj(M) and basic, but not working modinv function to calculate modular multiplicative inverse
+
 ### date y
 
 info
