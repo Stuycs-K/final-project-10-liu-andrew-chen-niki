@@ -62,3 +62,6 @@ def inverse(keyMatrix: list) -> list:
     keyMatrixinv = keyMatrixinv.astype(int)
     
     return keyMatrixinv.tolist()
+
+def keytomatrix(key: str) -> list:
+    
