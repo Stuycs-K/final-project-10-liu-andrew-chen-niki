@@ -34,6 +34,10 @@ Work on the generalization of the encoding so it no longer works for only triple
 
 Develop the tryhackme room practice for the hill cipher
 
+### 6/3 
+
+Start presentation.md writeup
+
 ## Niki Chen
 
 ### 5/22
