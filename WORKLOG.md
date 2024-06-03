@@ -67,7 +67,7 @@ Researched how to calculate modular multiplicative inverse
 
 ### 6/2
 
-Rewrote inverse function using M^-1 = ( 1 / |M| ) * adj(M) and basic, but not working modinv function to calculate modular multiplicative inverse
+Rewrote inverse function using M^-1 = ( 1 / |M| ) * adj(M) and wrote modinv function to calculate modular multiplicative inverse (working decode now)
 
 ### date y
 
