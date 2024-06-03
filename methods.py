@@ -39,11 +39,9 @@ def modinv(val, modulus):
     
     while val > 1:
         q = val // modulus # floor division
-        modulus = val % modulus
-        val = modulus
+        modulus, val = val % modulus, modulus
 
-        a = b - q * a
-        b = a
+        a, b = b - q * a, a
     if b < 0: b += m # make x1 positive
     
     return b
