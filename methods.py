@@ -1,3 +1,4 @@
+import math
 import numpy as np
 
 def encode(message: str ,keyMatrix: list) -> str:
@@ -64,4 +65,12 @@ def inverse(keyMatrix: list) -> list:
     return keyMatrixinv.tolist()
 
 def keytomatrix(key: str) -> list:
-    
+    size = math.sqrt(len(key))
+    keymatrix = np.zeros(size, size)
+    r = -1
+    i = 0
+    for char in key:
+        if i%size == 0: r+=1
+        keymatrix[r][i%size] = char%65
+        i+=1
+    return keymatrix
