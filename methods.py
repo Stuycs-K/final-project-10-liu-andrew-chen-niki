@@ -42,7 +42,7 @@ def modinv(val, modulus):
         modulus, val = val % modulus, modulus
 
         a, b = b - q * a, a
-    if b < 0: b += m # make x1 positive
+    if b < 0: b += m # make b positive
     
     return b
 
