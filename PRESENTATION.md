@@ -23,4 +23,26 @@
     * Vulnerable to known plaintext attacks, where an attacker can crack the cipher with access to both the plaintext and ciphertext.
 
 ## Encoding Plaintext using the Hill Cipher
+Parameters: Plaintext and a square key matrix of dimension n.
 
+
+Example: 
+
+Plaintext: "cybersecurity"
+
+Key Matrix:
+<div align="left">
+
+$$
+\begin{pmatrix}
+3 & 1 & 4 \\
+2 & 0 & 1 \\
+2 & 1 & 3
+\end{pmatrix}
+$$
+
+</div>
+
+
+### Step #1 
+Divide the 
