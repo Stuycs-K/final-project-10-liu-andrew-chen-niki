@@ -205,3 +205,6 @@ $$
  = [68,73,90]
  = DIZ
 $$
+
+### Step #8 
+Viola! Now you just have to combine these two strings. The encoded message is IFFDIZ.
