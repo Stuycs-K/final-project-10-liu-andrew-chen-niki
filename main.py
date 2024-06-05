@@ -12,8 +12,8 @@ if __name__ == '__main__':
     if option == 'e':
         # helloworld
         # 6 24 1 13 16 10 20 17 15
-        # XFJMPINSGCNY
-        plain = input("enter message to encode: ").strip()
+        # TFJIPIJSGSNI
+        plain = input("enter message to encode: ").strip().upper()
         key = input("enter a square matrix to use as key (ie: a b c d): ").strip()
         matrixinput = list(map(int, key.split()))
         size = int(math.sqrt(len(matrixinput)))
@@ -33,6 +33,7 @@ if __name__ == '__main__':
             print("Invalid key matrix size")
             sys.exit(1)
         keymatrix = np.array(matrixinput).reshape(size, size)
-        print(f"Key matrix:\n{keymatrix}")
-        decrypted = methods.encode(cipher, methods.inverse(keymatrix))
+        keymatrixinv = methods.inverse(keymatrix)
+        print(f"Inverse key matrix:\n{keymatrixinv}")
+        decrypted = methods.encode(cipher, keymatrixinv)
         print(f"Decoded message: {decrypted}")
