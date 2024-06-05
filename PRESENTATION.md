@@ -94,6 +94,11 @@ $$
 24 \\
 1
 \end{pmatrix} =
+\begin{pmatrix}
+34\\
+5 \\
+31
+\end{pmatrix}
 $$
 
 
