@@ -28,9 +28,10 @@ def encode(message: str ,keyMatrix: list) -> str:
         encoded_message += encoded_triplet
     
     print(f'After Matrix Multiplication: {encoded_message}')
-    encoded_message = [chr(value + 65) for value in encoded_message]
-    print()
-
+    encoded_message = [(value + 65) for value in encoded_message]
+    print(f'After Adding 65: {encoded_message}')
+    encoded_message = [chr(value) for value in encoded_message]
+    print(f'Turning ASCII into characters: {encoded_message}')
     encoded_string = "".join(encoded_message)
 
     return encoded_string
