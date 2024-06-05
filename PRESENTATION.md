@@ -1,29 +1,3 @@
-$$
-[[2, 24, 1], [4, 17, 0]]  
-->
-\begin{pmatrix}
-2 \\
-24 \\
-1
-\end{pmatrix}
-$$
-
-$$
-[[2, 24, 1], [4, 17, 0]]   
-->
-\begin{pmatrix}
-2 \\
-24 \\
-1
-\end{pmatrix},
-\begin{pmatrix}
-4 \\
-17 \\
-0
-\end{pmatrix}
-$$
-
-
 # Hill Cipher
 ### By: Andrew Liu & Niki Chen  
 
