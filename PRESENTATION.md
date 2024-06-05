@@ -112,12 +112,14 @@ $$
 2 \\
 24 \\
 1
-\end{pmatrix} = 
+\end{pmatrix}
+= 
 \begin{pmatrix}
 34\\
 5 \\
 31
 \end{pmatrix}
+
 $$
 
 
