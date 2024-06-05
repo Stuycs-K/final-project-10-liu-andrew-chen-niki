@@ -38,6 +38,10 @@ Develop the tryhackme room practice for the hill cipher
 
 Start presentation.md writeup
 
+### 6/5 
+
+Debug presentation.md
+
 ## Niki Chen
 
 ### 5/22
