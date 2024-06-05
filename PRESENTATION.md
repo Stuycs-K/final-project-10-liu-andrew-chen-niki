@@ -28,23 +28,180 @@ Parameters: Plaintext and a square key matrix of dimension n.
 
 Example: 
 
-Plaintext: "cybersecurity"
+Plaintext: "CYBER"
 
 Key Matrix:
-<div align="left">
 
 $$
-\begin{array}{l}
 \begin{pmatrix}
 3 & 1 & 4 \\
 2 & 0 & 1 \\
 2 & 1 & 3
 \end{pmatrix}
-\end{array}
 $$
 
-</div>
-
-
 ### Step #1 
-Divide the 
+Convert plaintext into array of ascii values
+
+"CYBER" -> [67, 89, 66, 69, 82]
+
+### Step #2 
+Take modolus 26 to create characters that have values from 0 - 25
+
+[67, 89, 66, 69, 82] -> [2, 24, 1, 4, 17]
+
+### Step #3
+
+Split array into groups of size n, where n is the dimension of our square key matrix. Since our key matrix in the example is dimension 3, we will split our character array into groups of size 3.
+
+[2, 24, 1, 4, 17] -> [2, 24, 1], [4, 17]]
+
+### Step #4
+
+Since the length of our plain text is not a multiple of n, which is 3 in this case, we need to pad the character groups that have sizes less than n with zeroes. 
+
+[2, 24, 1], [4, 17]] -> [[2, 24, 1], [4, 17, 0]]
+
+### Step #5
+
+Now that we have our triplets, we need to convert them into column vectors and multiply each one by the key matrix.
+
+$$
+
+[[2, 24, 1], [4, 17, 0]]   
+->
+\begin{pmatrix}
+
+2 \\
+24 \\
+1
+
+\end{pmatrix},
+\begin{pmatrix}
+4 \\
+17 \\
+0
+\end{pmatrix}
+$$
+
+$$
+\begin{pmatrix}
+3 & 1 & 4 \\
+2 & 0 & 1 \\
+2 & 1 & 3
+\end{pmatrix}
+\begin{pmatrix}
+2 \\
+24 \\
+1
+\end{pmatrix}
+ = 
+ \begin{pmatrix}
+34\\
+5 \\
+31
+\end{pmatrix}
+$$
+
+$$
+\begin{pmatrix}
+3 & 1 & 4 \\
+2 & 0 & 1 \\
+2 & 1 & 3
+\end{pmatrix}
+\begin{pmatrix}
+4 \\
+17 \\
+0
+\end{pmatrix}
+ = 
+\begin{pmatrix}
+29 \\
+8 \\
+25
+\end{pmatrix}
+$$
+
+### Step #6
+
+We need to the encoded message to be a valid ASCII value. First, we take the modulos 26 to get values between 0 and 25. Then, we add back 65 to get the equivalent ASCII representation.
+
+
+$$
+ \begin{pmatrix}
+34\\
+5 \\
+31
+\end{pmatrix}
+mod 26 = 
+ \begin{pmatrix}
+8\\
+5 \\
+5
+\end{pmatrix}
+ + 
+  \begin{pmatrix}
+65\\
+65 \\
+65
+\end{pmatrix}
+ = 
+\begin{pmatrix}
+73\\
+70 \\
+70
+\end{pmatrix}
+$$
+
+
+$$
+\begin{pmatrix}
+29 \\
+8 \\
+25
+\end{pmatrix}
+mod 26 = 
+\begin{pmatrix}
+3 \\
+8 \\
+25
+\end{pmatrix}
+ + 
+  \begin{pmatrix}
+65\\
+65 \\
+65
+\end{pmatrix}
+ = 
+\begin{pmatrix}
+68\\
+73 \\
+90
+\end{pmatrix}
+$$
+
+
+### Step #7 
+These column vectors need to be converted back to arrays and then to their ASCII value.
+
+$$
+\begin{pmatrix}
+73\\
+70 \\
+70
+\end{pmatrix}
+ = [73,70,70]
+ = DIZ
+$$
+
+
+
+$$
+\begin{pmatrix}
+68\\
+73 \\
+90
+\end{pmatrix}
+ = [68,73,90]
+ = DHZ
+$$

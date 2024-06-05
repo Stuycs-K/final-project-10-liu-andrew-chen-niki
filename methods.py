@@ -27,7 +27,9 @@ def encode(message: str ,keyMatrix: list) -> str:
         print(f'{size}-plets {index}: {encoded_triplet}')
         encoded_message += encoded_triplet
     
+    print(f'After Matrix Multiplication: {encoded_message}')
     encoded_message = [chr(value + 65) for value in encoded_message]
+    print()
 
     encoded_string = "".join(encoded_message)
 
