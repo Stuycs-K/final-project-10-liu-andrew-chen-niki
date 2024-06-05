@@ -93,7 +93,7 @@ $$
 2 \\
 24 \\
 1
-\end{pmatrix}
+\end{pmatrix} =
 $$
 
 
