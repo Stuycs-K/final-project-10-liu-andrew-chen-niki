@@ -81,7 +81,7 @@ $$
 \end{pmatrix}
 $$
 
-
+fdksalj
 $$
 \begin{pmatrix}
 3 & 1 & 4 \\
@@ -102,15 +102,6 @@ $$
 $$
 
 
-
-$$
-\begin{pmatrix}
-34\\
-5 \\
-31
-\end{pmatrix}
-$$
-
 $$
 \begin{pmatrix}
 3 & 1 & 4 \\
@@ -122,7 +113,7 @@ $$
 17 \\
 0
 \end{pmatrix}
- = 
+= 
 \begin{pmatrix}
 29 \\
 8 \\
