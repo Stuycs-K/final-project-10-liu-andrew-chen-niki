@@ -93,15 +93,12 @@ Since the length of our plain text is not a multiple of n, which is 3 in this ca
 Now that we have our triplets, we need to convert them into column vectors and multiply each one by the key matrix.
 
 $$
-
 [[2, 24, 1], [4, 17, 0]]   
 ->
 \begin{pmatrix}
-
 2 \\
 24 \\
 1
-
 \end{pmatrix},
 \begin{pmatrix}
 4 \\
