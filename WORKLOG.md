@@ -69,6 +69,14 @@ Researched how to calculate modular multiplicative inverse
 
 Rewrote inverse function using M^-1 = ( 1 / |M| ) * adj(M) and wrote modinv function to calculate modular multiplicative inverse (working decode now)
 
+### 6/3
+
+Started CLI (user input in terminal) mode, wrote function to convert key string to key matrix
+
+### 6/5
+
+Continued working on CLI mode, got encode to work, decode does not
+
 ### date y
 
 info
