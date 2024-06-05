@@ -89,7 +89,6 @@ $$
 2 & 0 & 1 \\
 2 & 1 & 3
 \end{pmatrix}
-
 \begin{pmatrix}
 2 \\
 24 \\
@@ -101,6 +100,7 @@ $$
 5 \\
 31
 \end{pmatrix}
+
 $$
 
 
