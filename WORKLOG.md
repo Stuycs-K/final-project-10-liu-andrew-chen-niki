@@ -75,7 +75,8 @@ Started CLI (user input in terminal) mode, wrote function to convert key string 
 
 ### 6/5
 
-Continued working on CLI mode, got encode to work, decode does not
+Continued working on CLI mode, got both encode and decode to work
+Updated README.md
 
 ### date y
 
