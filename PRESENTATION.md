@@ -105,17 +105,6 @@ $$
 
 $$
 \begin{pmatrix}
-3 & 1 & 4 \\
-2 & 0 & 1 \\
-2 & 1 & 3
-\end{pmatrix}
-\begin{pmatrix}
-2 \\
-24 \\
-1
-\end{pmatrix}
- = 
- \begin{pmatrix}
 34\\
 5 \\
 31
