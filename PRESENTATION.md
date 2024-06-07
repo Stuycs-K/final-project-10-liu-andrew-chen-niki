@@ -229,7 +229,13 @@ $$
 $$
 
 
-Something very cool about Hill Cipher is that the encryption and decryption logics are the same. In other words, we can use the same function to encode and decode messages (which is what we did!).
+Something very cool about Hill Cipher is that the encryption and decryption logics are the same. In other words, we can use the same function to encode and decode messages (which is what we did!) ... with a caveat ...
+
+We have to use the inverse of the key matrix!
+
+To do that, we can use the standard method of matrix inversion. Except, this often produces float matrix entries, which is very inconvenient when calculating the rest of the math since we want to work with integer values. 
+
+The key matrix may be invertible but not invertible mod p???
 
 ### Step #1 
 Convert ciphertext into array of ascii values
@@ -314,20 +320,20 @@ $$
 
 ### Step #6
 
-We need the encoded message to be a valid ASCII value. First, we take the modulos 26 to get values between 0 and 25. Then, we add back 65 to get the equivalent ASCII representation.
+We need revert the decoded message back into valid ASCII values. So, we have to take the modulos 26 to get values between 0 and 25. Then, we add back 65 to get the equivalent ASCII representation.
 
 
 $$
  \begin{pmatrix}
-34\\
-5 \\
-31
+2\\
+24 \\
+1
 \end{pmatrix}
 mod 26 = 
  \begin{pmatrix}
-8\\
-5 \\
-5
+2\\
+24 \\
+1
 \end{pmatrix}
  + 
   \begin{pmatrix}
@@ -337,24 +343,24 @@ mod 26 =
 \end{pmatrix}
  = 
 \begin{pmatrix}
-73\\
-70 \\
-70
+67\\
+89 \\
+66
 \end{pmatrix}
 $$
 
 
 $$
 \begin{pmatrix}
-29 \\
-8 \\
-25
+4 \\
+17 \\
+0
 \end{pmatrix}
 mod 26 = 
 \begin{pmatrix}
-3 \\
-8 \\
-25
+4 \\
+17 \\
+0
 \end{pmatrix}
  + 
   \begin{pmatrix}
@@ -364,9 +370,9 @@ mod 26 =
 \end{pmatrix}
  = 
 \begin{pmatrix}
-68\\
-73 \\
-90
+69\\
+82 \\
+65
 \end{pmatrix}
 $$
 
@@ -376,25 +382,26 @@ These column vectors need to be converted back to arrays and then to their ASCII
 
 $$
 \begin{pmatrix}
-73\\
-70 \\
-70
+67\\
+89 \\
+66
 \end{pmatrix}
- = [73,70,70]
- = IFF
+ = [67, 89, 66]
+ = CYB
 $$
 
 
 
 $$
 \begin{pmatrix}
-68\\
-73 \\
-90
+69\\
+82 \\
+65
 \end{pmatrix}
- = [68,73,90]
- = DIZ
+ = [69, 82, 65]
+ = ERA
 $$
 
 ### Step #8 
-Viola! Now you just have to combine these two strings. The encoded message is IFFDIZ.
+Viola! Now you just have to combine these two strings. The decoded message is CYBERA.
+Notice: There is an extra 'A' at the end of the message because we had to pad the plaintext before encryption. This shouldn't be too big of an issue because the message should still be human-understandable.
