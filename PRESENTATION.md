@@ -163,13 +163,13 @@ mod 26 =
 8 \\
 25
 \end{pmatrix}
- + 
-  \begin{pmatrix}
++ 
+\begin{pmatrix}
 65\\
 65 \\
 65
 \end{pmatrix}
- = 
+= 
 \begin{pmatrix}
 68\\
 73 \\
