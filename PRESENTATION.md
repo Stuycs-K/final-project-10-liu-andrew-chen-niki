@@ -112,8 +112,7 @@ $$
 2 \\
 24 \\
 1
-\end{pmatrix}
-= 
+\end{pmatrix}= 
 \begin{pmatrix}
 34\\
 5 \\
@@ -133,8 +132,7 @@ $$
 4 \\
 17 \\
 0
-\end{pmatrix}
-= 
+\end{pmatrix}= 
 \begin{pmatrix}
 29 \\
 8 \\
