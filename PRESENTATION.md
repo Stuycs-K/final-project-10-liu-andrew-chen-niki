@@ -168,8 +168,7 @@ mod 26 =
 65\\
 65 \\
 65
-\end{pmatrix}
-= 
+\end{pmatrix} = 
 \begin{pmatrix}
 68\\
 73 \\
