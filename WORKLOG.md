@@ -42,6 +42,10 @@ Start presentation.md writeup
 
 Debug presentation.md
 
+### 6/7
+
+Debug presentation.md, github renders latex very weirdly and has some syntax specifications.
+
 ## Niki Chen
 
 ### 5/22
