@@ -126,24 +126,23 @@ We need to the encoded message to be a valid ASCII value. First, we take the mod
 
 
 $$
- \begin{pmatrix}
+\begin{pmatrix}
 34\\
 5 \\
 31
 \end{pmatrix}
 mod 26 = 
- \begin{pmatrix}
+\begin{pmatrix}
 8\\
 5 \\
 5
 \end{pmatrix}
- + 
-  \begin{pmatrix}
++ 
+\begin{pmatrix}
 65\\
 65 \\
 65
-\end{pmatrix}
- = 
+\end{pmatrix} = 
 \begin{pmatrix}
 73\\
 70 \\
