@@ -99,7 +99,6 @@ $$
 5 \\
 31
 \end{pmatrix}
-
 $$
 
 
@@ -115,7 +114,7 @@ $$
 0
 \end{pmatrix} = 
 \begin{pmatrix}
-29 \\
+29\\
 8 \\
 25
 \end{pmatrix}
