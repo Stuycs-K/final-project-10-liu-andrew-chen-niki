@@ -93,7 +93,7 @@ $$
 2 \\
 24 \\
 1
-\end{pmatrix} =
+\end{pmatrix} = 
 \begin{pmatrix}
 34\\
 5 \\
@@ -112,10 +112,9 @@ $$
 4 \\
 17 \\
 0
-\end{pmatrix}
-= 
+\end{pmatrix} = 
 \begin{pmatrix}
-29 \\
+29\\
 8 \\
 25
 \end{pmatrix}
@@ -127,24 +126,23 @@ We need the encoded message to be a valid ASCII value. First, we take the modulo
 
 
 $$
- \begin{pmatrix}
+\begin{pmatrix}
 34\\
 5 \\
 31
 \end{pmatrix}
 mod 26 = 
- \begin{pmatrix}
+\begin{pmatrix}
 8\\
 5 \\
 5
 \end{pmatrix}
- + 
-  \begin{pmatrix}
++ 
+\begin{pmatrix}
 65\\
 65 \\
 65
-\end{pmatrix}
- = 
+\end{pmatrix} = 
 \begin{pmatrix}
 73\\
 70 \\
@@ -165,13 +163,12 @@ mod 26 =
 8 \\
 25
 \end{pmatrix}
- + 
-  \begin{pmatrix}
++ 
+\begin{pmatrix}
 65\\
 65 \\
 65
-\end{pmatrix}
- = 
+\end{pmatrix} = 
 \begin{pmatrix}
 68\\
 73 \\
