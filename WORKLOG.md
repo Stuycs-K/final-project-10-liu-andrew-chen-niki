@@ -23,12 +23,24 @@ Specify and clean up function parameters
 Finish the encode function, using np matrix multiplication and returning the encodede String
 
 ### 5/29
-
+`
 Allow user input to work with encoding, demonstrate the process of encoding through print statements.
 
 ### 5/30
 
 Work on the generalization of the encoding so it no longer works for only triplets. 
+
+### 5/31 
+
+Develop the tryhackme room practice for the hill cipher
+
+### 6/3 
+
+Start presentation.md writeup
+
+### 6/5 
+
+Debug presentation.md
 
 ## Niki Chen
 

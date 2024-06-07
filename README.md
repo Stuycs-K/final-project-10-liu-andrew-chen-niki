@@ -25,4 +25,7 @@ Padding 3-plets with zeros: [[7, 4, 11], [11, 14, 22], [14, 17, 11], [3, 0, 0]]
 3-plets 3: [18, 13, 8]
 Encoded message: TFJIPIJSGSNI
 ```
+There are a few options to how you want to input the plain/cipher text and key. You can choose between DEFAULT, FILE, and CLI. DEFAULT takes in the information from the program - that is, as arguments to the encoder function. FILE takes into two files: plain text and key. CLI waits for user input in the terminal. Running the program will output the encrypted/decrypted cipher/plain text into the command line. 
+
+Tryhackme Practice Room: https://tryhackme.com/r/room/hillcipherencoding
 
