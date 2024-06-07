@@ -54,13 +54,13 @@ Take modolus 65 to create characters that have values from 0 - 25
 
 Split array into groups of size n, where n is the dimension of our square key matrix. Since our key matrix in the example is dimension 3, we will split our character array into groups of size 3.
 
-[2, 24, 1, 4, 17] -> [2, 24, 1], [4, 17]]
+[2, 24, 1, 4, 17] -> [ [2, 24, 1], [4, 17] ]
 
 ### Step #4
 
 Since the length of our plain text is not a multiple of n, which is 3 in this case, we need to pad the character groups that have sizes less than n with zeroes. 
 
-[2, 24, 1], [4, 17]] -> [[2, 24, 1], [4, 17, 0]]
+[ [2, 24, 1], [4, 17] ] -> [ [2, 24, 1], [4, 17, 0] ]
 
 ### Step #5
 
@@ -248,30 +248,30 @@ Take modolus 65 to create characters that have values from 0 - 25
 
 Split array into groups of size n, where n is the dimension of our square key matrix. Since our key matrix in the example is dimension 3, we will split our character array into groups of size 3.
 
-[2, 24, 1, 4, 17] -> [2, 24, 1], [4, 17]]
+[8, 5, 5, 3, 8, 25] -> [ [8, 5, 5], [3, 8, 25] ]
 
 ### Step #4
 
-Since the length of our plain text is not a multiple of n, which is 3 in this case, we need to pad the character groups that have sizes less than n with zeroes. 
+As opposed to when we're encrypting a plaintext message, the length of our ciphertext array should always be a multiple of n because we padded the message while encoding. Therefore, we do not need to worry about padding the character groups during decryption.
 
-[2, 24, 1], [4, 17]] -> [[2, 24, 1], [4, 17, 0]]
+[ [8, 5, 5], [3, 8, 25] ]
 
 ### Step #5
 
-Now that we have our triplets, we need to convert them into column vectors and multiply each one by the key matrix.
+Given our triplets, we need to convert them into column vectors and multiply each one by the key matrix.
 
 $$
-[[2, 24, 1], [4, 17, 0]]   
+[ [8, 5, 5], [3, 8, 25] ]
 ->
 \begin{pmatrix}
-2 \\
-24 \\
-1
+8 \\
+5 \\
+5
 \end{pmatrix},
 \begin{pmatrix}
-4 \\
-17 \\
-0
+3 \\
+8 \\
+25
 \end{pmatrix}
 $$
 
@@ -284,14 +284,14 @@ $$
 2 & 1 & 3
 \end{pmatrix}
 \begin{pmatrix}
-2 \\
-24 \\
-1
+8 \\
+5 \\
+5
 \end{pmatrix} =
 \begin{pmatrix}
-34\\
-5 \\
-31
+2\\
+24 \\
+1
 \end{pmatrix}
 $$
 
@@ -303,15 +303,15 @@ $$
 2 & 1 & 3
 \end{pmatrix}
 \begin{pmatrix}
-4 \\
-17 \\
-0
+3 \\
+8 \\
+25
 \end{pmatrix}
 = 
 \begin{pmatrix}
-29 \\
-8 \\
-25
+4 \\
+17 \\
+0
 \end{pmatrix}
 $$
 
