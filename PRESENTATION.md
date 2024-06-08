@@ -231,11 +231,111 @@ $$
 
 Something very cool about Hill Cipher is that the encryption and decryption logics are the same. In other words, we can use the same function to encode and decode messages (which is what we did!) ... with a caveat ...
 
-We have to use the inverse of the key matrix!
+We have to use the inverse of the key matrix! An inverse matrix, $m^{-1}$ is a matrix that when multiplied with a given matrix, $m$, gives the identity matrix, $I$, a square matrix in which all the elements of principal diagonals are one, and all other elements are zeros.
 
-To do that, we can use the standard method of matrix inversion. Except, this often produces float matrix entries, which is very inconvenient when calculating the rest of the math since we want to work with integer values. 
+$mm^{-1} = I$
 
-The key matrix may be invertible but not invertible mod p???
+$\begin{pmatrix}
+4 & 3 \\
+3 & 2
+\end{pmatrix}$
+$\begin{pmatrix}
+-2 & 3 \\
+3 & -4
+\end{pmatrix}$ = 
+$\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}$
+
+To do that, we can use the matrix inverse formula: $ m^{-1} = (det(m))^{-1} \begin{pmatrix}
+d & -b \\
+-c & a
+\end{pmatrix} $
+where $(det(m))^{-1}$ is the multiplicative inverse of the determinant
+$\begin{pmatrix}
+d & -b \\
+-c & a
+\end{pmatrix}$ is the adjugate, or adjoint, matrix of $m$, which is obtained by taking the transpose of the co-factor elements of the given matrix. 
+
+For simplicity, let's consider the 2x2 matrix, $A$ = $\begin{pmatrix}
+3 & 6 \\
+-4 & 8
+\end{pmatrix}$
+
+The three important steps involved in finding the adjoint of a matrix are:
+1. Find the minor matrix M of all the elements of matrix A.
+2. Find the cofactor matrix C of all the minor elements of matrix M.
+3. Find the adj B by taking the transpose of the cofactor matrix C.
+
+For step 1, the minor matrix $M$ is found by replacing each entry with its minor. To do this, you have to cover the row and column of the entry; the remaining entry is the minor.
+
+Minor of 3 = $\begin{pmatrix}
+0 & 0 \\
+0 & 8
+\end{pmatrix}$ = 8
+
+Minor of 6 = $\begin{pmatrix}
+0 & 0 \\
+-4 & 0
+\end{pmatrix}$ = -4
+
+Minor of -4 = $\begin{pmatrix}
+0 & 6 \\
+0 & 0
+\end{pmatrix}$ = 6
+
+Minor of 8 = $\begin{pmatrix}
+3 & 0 \\
+0 & 0
+\end{pmatrix}$ = 3
+
+Minor matrix $M$ = $\begin{pmatrix}
+8 & -4 \\
+6 & 3
+\end{pmatrix}$
+
+For step 2, the cofactor of an element $a_{ij}$ is obtained by multiplying its minor by $(-1)^{i+j}$. For 2x2 matrices like $A$ and $M$, the cofactor matrix, $C$, is the minor matrix with its elements multiplied by the following signs:
+
+$C$ = 
+[ [+  -]
+[-  +] ]
+
+Cofactor matrix $C$ = $\begin{pmatrix}
+8 & 4 \\
+-6 & 3
+\end{pmatrix}$
+
+For step 3, the transpose of a matrix is obtained by simply interchanging its rows and columns.
+
+Transpose matrix $C^{T}$ = $\begin{pmatrix}
+8 & -6 \\
+4 & 3
+\end{pmatrix}$. This is the adjugate/adjoint matrix.
+
+The determinant of the original matrix $A$ = $\begin{pmatrix}
+3 & 6 \\
+-4 & 8
+\end{pmatrix}$ can be calculated using the formula $ad-bc$ where $a, b, c, d$ refer to the elements of the matrix $\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}$. 
+
+$det(A)$ = 48. So $A^{-1}$ = $\frac{1}{48}$ $\begin{pmatrix}
+8 & -6 \\
+4 & 3
+\end{pmatrix}$ = $\begin{pmatrix}
+1/6 & -1/8 \\
+1/12 & 1/16
+\end{pmatrix}$
+
+Note: The matrix m will have an inverse $m^{-1} (mod 26)$  if and only if $det(m) (mod 26)$ has a multiplicative inverse. That being said, in order for the key matrix to actually work for encryption and decryption using the Hill Cipher, it has to be invertible. Interestingly, the example matrix $A$ = $\begin{pmatrix}
+3 & 6 \\
+-4 & 8
+\end{pmatrix}$ we used to demonstrate how to find an inverse of a matrix is actually not invertible $mod 26$ because $48(mod 26)$ doesn't have a multiplicative inverse.
+Rule: $a$ is invertible $mod(p)$ when $a$ and $p$ are coprime.
+
+Other than this caveat, the decryption method is the same as encryption, except the two parameters are ciphetext and inverse of key matrix, rather than plaintext and key matrix.
 
 ### Step #1 
 Convert ciphertext into array of ascii values
