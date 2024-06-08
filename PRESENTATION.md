@@ -235,6 +235,7 @@ We have to use the inverse of the key matrix! An inverse matrix, $m^{-1}$ is a m
 
 $mm^{-1} = I$
 
+
 $\begin{pmatrix}
 4 & 3 \\
 3 & 2
@@ -329,13 +330,32 @@ $det(A)$ = 48. So $A^{-1}$ = $\frac{1}{48}$ $\begin{pmatrix}
 1/12 & 1/16
 \end{pmatrix}$
 
-Note: The matrix m will have an inverse $m^{-1} (mod 26)$  if and only if $det(m) (mod 26)$ has a multiplicative inverse. That being said, in order for the key matrix to actually work for encryption and decryption using the Hill Cipher, it has to be invertible. Interestingly, the example matrix $A$ = $\begin{pmatrix}
+Note: The matrix $m$ will have an inverse $m^{-1} (mod 26)$  if and only if $det(m) (mod 26)$ has a multiplicative inverse. That being said, in order for the key matrix to actually work for encryption and decryption using the Hill Cipher, it has to be invertible. Interestingly, the example matrix $A$ = $\begin{pmatrix}
 3 & 6 \\
 -4 & 8
 \end{pmatrix}$ we used to demonstrate how to find an inverse of a matrix is actually not invertible $mod 26$ because $48(mod 26)$ doesn't have a multiplicative inverse.
 Rule: $a$ is invertible $mod(p)$ when $a$ and $p$ are coprime.
 
 Other than this caveat, the decryption method is the same as encryption, except the two parameters are ciphetext and inverse of key matrix, rather than plaintext and key matrix.
+
+
+Going back to decrypting the message "IFFDIZ", we first need to invert our key matrix 
+
+$$
+\begin{pmatrix}
+3 & 1 & 4 \\
+2 & 0 & 1 \\
+2 & 1 & 3
+\end{pmatrix} ^{-1}
+$$
+=
+$$
+\begin{pmatrix}
+25 & 1 & 1 \\
+22 & 1 & 5 \\
+2 & 25 & 24
+\end{pmatrix}
+$$
 
 ### Step #1 
 Convert ciphertext into array of ascii values
@@ -361,7 +381,7 @@ As opposed to when we're encrypting a plaintext message, the length of our ciphe
 
 ### Step #5
 
-Given our triplets, we need to convert them into column vectors and multiply each one by the key matrix.
+Given our triplets, we need to convert them into column vectors and multiply each one by the inverse key matrix.
 
 $$
 [ [8, 5, 5], [3, 8, 25] ]
@@ -382,9 +402,9 @@ $$
 
 $$
 \begin{pmatrix}
-3 & 1 & 4 \\
-2 & 0 & 1 \\
-2 & 1 & 3
+25 & 1 & 1 \\
+22 & 1 & 5 \\
+2 & 25 & 24
 \end{pmatrix}
 \begin{pmatrix}
 8 \\
@@ -392,18 +412,18 @@ $$
 5
 \end{pmatrix} =
 \begin{pmatrix}
-2\\
-24 \\
-1
+210\\
+206 \\
+261
 \end{pmatrix}
 $$
 
 
 $$
 \begin{pmatrix}
-3 & 1 & 4 \\
-2 & 0 & 1 \\
-2 & 1 & 3
+25 & 1 & 1 \\
+22 & 1 & 5 \\
+2 & 25 & 24
 \end{pmatrix}
 \begin{pmatrix}
 3 \\
@@ -412,9 +432,9 @@ $$
 \end{pmatrix}
 = 
 \begin{pmatrix}
-4 \\
-17 \\
-0
+108 \\
+199 \\
+806
 \end{pmatrix}
 $$
 
@@ -425,9 +445,9 @@ We need revert the decoded message back into valid ASCII values. So, we have to 
 
 $$
  \begin{pmatrix}
-2\\
-24 \\
-1
+210\\
+206 \\
+261
 \end{pmatrix}
 mod 26 = 
  \begin{pmatrix}
@@ -452,9 +472,9 @@ $$
 
 $$
 \begin{pmatrix}
-4 \\
-17 \\
-0
+108 \\
+199 \\
+806
 \end{pmatrix}
 mod 26 = 
 \begin{pmatrix}
