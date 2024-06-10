@@ -233,13 +233,17 @@ Something very cool about Hill Cipher is that the encryption and decryption logi
 
 We have to use the inverse of the key matrix! An inverse matrix, $m^{-1}$ is a matrix that when multiplied with a given matrix, $m$, gives the identity matrix, $I$, a square matrix in which all the elements of principal diagonals are one, and all other elements are zeros.
 
-$mm^{-1} = I$
+$$
+mm^{-1} = I
+$$
 
 
-$\begin{pmatrix}
+$$
+\begin{pmatrix}
 4 & 3 \\
 3 & 2
-\end{pmatrix}$
+\end{pmatrix}
+$$
 $\begin{pmatrix}
 -2 & 3 \\
 3 & -4
