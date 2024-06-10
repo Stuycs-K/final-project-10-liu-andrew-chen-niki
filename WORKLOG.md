@@ -46,6 +46,10 @@ Debug presentation.md
 
 Debug presentation.md, github renders latex very weirdly and has some syntax specifications.
 
+## 6/10
+
+Debug presentation.md, finish video and add finishing touches to project.
+
 ## Niki Chen
 
 ### 5/22
