@@ -229,7 +229,133 @@ $$
 $$
 
 
-Something very cool about Hill Cipher is that the encryption and decryption logics are the same. In other words, we can use the same function to encode and decode messages (which is what we did!).
+Something very cool about Hill Cipher is that the encryption and decryption logics are the same. In other words, we can use the same function to encode and decode messages (which is what we did!) ... with a caveat ...
+
+We have to use the inverse of the key matrix! An inverse matrix, $m^{-1}$ is a matrix that when multiplied with a given matrix, $m$, gives the identity matrix, $I$, a square matrix in which all the elements of principal diagonals are one, and all other elements are zeros.
+
+$mm^{-1} = I$
+
+
+$\begin{pmatrix}
+4 & 3 \\
+3 & 2
+\end{pmatrix}$
+$\begin{pmatrix}
+-2 & 3 \\
+3 & -4
+\end{pmatrix}$ = 
+$\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}$
+
+To do that, we can use the matrix inverse formula: $ m^{-1} = (det(m))^{-1} \begin{pmatrix}
+d & -b \\
+-c & a
+\end{pmatrix} $
+where $(det(m))^{-1}$ is the multiplicative inverse of the determinant
+$\begin{pmatrix}
+d & -b \\
+-c & a
+\end{pmatrix}$ is the adjugate, or adjoint, matrix of $m$, which is obtained by taking the transpose of the co-factor elements of the given matrix. 
+
+For simplicity, let's consider the 2x2 matrix, $A$ = $\begin{pmatrix}
+3 & 6 \\
+-4 & 8
+\end{pmatrix}$
+
+The three important steps involved in finding the adjoint of a matrix are:
+1. Find the minor matrix M of all the elements of matrix A.
+2. Find the cofactor matrix C of all the minor elements of matrix M.
+3. Find the adj B by taking the transpose of the cofactor matrix C.
+
+For step 1, the minor matrix $M$ is found by replacing each entry with its minor. To do this, you have to cover the row and column of the entry; the remaining entry is the minor.
+
+Minor of 3 = $\begin{pmatrix}
+0 & 0 \\
+0 & 8
+\end{pmatrix}$ = 8
+
+Minor of 6 = $\begin{pmatrix}
+0 & 0 \\
+-4 & 0
+\end{pmatrix}$ = -4
+
+Minor of -4 = $\begin{pmatrix}
+0 & 6 \\
+0 & 0
+\end{pmatrix}$ = 6
+
+Minor of 8 = $\begin{pmatrix}
+3 & 0 \\
+0 & 0
+\end{pmatrix}$ = 3
+
+Minor matrix $M$ = $\begin{pmatrix}
+8 & -4 \\
+6 & 3
+\end{pmatrix}$
+
+For step 2, the cofactor of an element $a_{ij}$ is obtained by multiplying its minor by $(-1)^{i+j}$. For 2x2 matrices like $A$ and $M$, the cofactor matrix, $C$, is the minor matrix with its elements multiplied by the following signs:
+
+$C$ = 
+[ [+  -]
+[-  +] ]
+
+Cofactor matrix $C$ = $\begin{pmatrix}
+8 & 4 \\
+-6 & 3
+\end{pmatrix}$
+
+For step 3, the transpose of a matrix is obtained by simply interchanging its rows and columns.
+
+Transpose matrix $C^{T}$ = $\begin{pmatrix}
+8 & -6 \\
+4 & 3
+\end{pmatrix}$. This is the adjugate/adjoint matrix.
+
+The determinant of the original matrix $A$ = $\begin{pmatrix}
+3 & 6 \\
+-4 & 8
+\end{pmatrix}$ can be calculated using the formula $ad-bc$ where $a, b, c, d$ refer to the elements of the matrix $\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}$. 
+
+$det(A)$ = 48. So $A^{-1}$ = $\frac{1}{48}$ $\begin{pmatrix}
+8 & -6 \\
+4 & 3
+\end{pmatrix}$ = $\begin{pmatrix}
+1/6 & -1/8 \\
+1/12 & 1/16
+\end{pmatrix}$
+
+Note: The matrix $m$ will have an inverse $m^{-1} (mod 26)$  if and only if $det(m) (mod 26)$ has a multiplicative inverse. That being said, in order for the key matrix to actually work for encryption and decryption using the Hill Cipher, it has to be invertible. Interestingly, the example matrix $A$ = $\begin{pmatrix}
+3 & 6 \\
+-4 & 8
+\end{pmatrix}$ we used to demonstrate how to find an inverse of a matrix is actually not invertible $mod 26$ because $48(mod 26)$ doesn't have a multiplicative inverse.
+Rule: $a$ is invertible $mod(p)$ when $a$ and $p$ are coprime.
+
+Other than this caveat, the decryption method is the same as encryption, except the two parameters are ciphetext and inverse of key matrix, rather than plaintext and key matrix.
+
+
+Going back to decrypting the message "IFFDIZ", we first need to invert our key matrix 
+
+$$
+\begin{pmatrix}
+3 & 1 & 4 \\
+2 & 0 & 1 \\
+2 & 1 & 3
+\end{pmatrix} ^{-1}
+$$
+=
+$$
+\begin{pmatrix}
+25 & 1 & 1 \\
+22 & 1 & 5 \\
+2 & 25 & 24
+\end{pmatrix}
+$$
 
 ### Step #1 
 Convert ciphertext into array of ascii values
@@ -255,7 +381,7 @@ As opposed to when we're encrypting a plaintext message, the length of our ciphe
 
 ### Step #5
 
-Given our triplets, we need to convert them into column vectors and multiply each one by the key matrix.
+Given our triplets, we need to convert them into column vectors and multiply each one by the inverse key matrix.
 
 $$
 [ [8, 5, 5], [3, 8, 25] ]
@@ -276,9 +402,9 @@ $$
 
 $$
 \begin{pmatrix}
-3 & 1 & 4 \\
-2 & 0 & 1 \\
-2 & 1 & 3
+25 & 1 & 1 \\
+22 & 1 & 5 \\
+2 & 25 & 24
 \end{pmatrix}
 \begin{pmatrix}
 8 \\
@@ -286,18 +412,18 @@ $$
 5
 \end{pmatrix} =
 \begin{pmatrix}
-2\\
-24 \\
-1
+210\\
+206 \\
+261
 \end{pmatrix}
 $$
 
 
 $$
 \begin{pmatrix}
-3 & 1 & 4 \\
-2 & 0 & 1 \\
-2 & 1 & 3
+25 & 1 & 1 \\
+22 & 1 & 5 \\
+2 & 25 & 24
 \end{pmatrix}
 \begin{pmatrix}
 3 \\
@@ -306,28 +432,28 @@ $$
 \end{pmatrix}
 = 
 \begin{pmatrix}
-4 \\
-17 \\
-0
+108 \\
+199 \\
+806
 \end{pmatrix}
 $$
 
 ### Step #6
 
-We need the encoded message to be a valid ASCII value. First, we take the modulos 26 to get values between 0 and 25. Then, we add back 65 to get the equivalent ASCII representation.
+We need revert the decoded message back into valid ASCII values. So, we have to take the modulos 26 to get values between 0 and 25. Then, we add back 65 to get the equivalent ASCII representation.
 
 
 $$
  \begin{pmatrix}
-34\\
-5 \\
-31
+210\\
+206 \\
+261
 \end{pmatrix}
 mod 26 = 
  \begin{pmatrix}
-8\\
-5 \\
-5
+2\\
+24 \\
+1
 \end{pmatrix}
  + 
   \begin{pmatrix}
@@ -337,24 +463,24 @@ mod 26 =
 \end{pmatrix}
  = 
 \begin{pmatrix}
-73\\
-70 \\
-70
+67\\
+89 \\
+66
 \end{pmatrix}
 $$
 
 
 $$
 \begin{pmatrix}
-29 \\
-8 \\
-25
+108 \\
+199 \\
+806
 \end{pmatrix}
 mod 26 = 
 \begin{pmatrix}
-3 \\
-8 \\
-25
+4 \\
+17 \\
+0
 \end{pmatrix}
  + 
   \begin{pmatrix}
@@ -364,9 +490,9 @@ mod 26 =
 \end{pmatrix}
  = 
 \begin{pmatrix}
-68\\
-73 \\
-90
+69\\
+82 \\
+65
 \end{pmatrix}
 $$
 
@@ -376,25 +502,26 @@ These column vectors need to be converted back to arrays and then to their ASCII
 
 $$
 \begin{pmatrix}
-73\\
-70 \\
-70
+67\\
+89 \\
+66
 \end{pmatrix}
- = [73,70,70]
- = IFF
+ = [67, 89, 66]
+ = CYB
 $$
 
 
 
 $$
 \begin{pmatrix}
-68\\
-73 \\
-90
+69\\
+82 \\
+65
 \end{pmatrix}
- = [68,73,90]
- = DIZ
+ = [69, 82, 65]
+ = ERA
 $$
 
 ### Step #8 
-Viola! Now you just have to combine these two strings. The encoded message is IFFDIZ.
+Viola! Now you just have to combine these two strings. The decoded message is CYBERA.
+Notice: There is an extra 'A' at the end of the message because we had to pad the plaintext before encryption. This shouldn't be too big of an issue because the message should still be human-understandable.

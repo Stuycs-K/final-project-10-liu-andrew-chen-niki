@@ -94,6 +94,10 @@ Started CLI (user input in terminal) mode, wrote function to convert key string 
 Continued working on CLI mode, got both encode and decode to work
 Updated README.md
 
+### 6/7
+
+Started decryption portion of PRESENTATION.md, debugged some of encryption portion
+
 ### date y
 
 info
